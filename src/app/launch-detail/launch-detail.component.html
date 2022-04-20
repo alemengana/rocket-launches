@@ -1,0 +1,27 @@
+<div class="launch-detail-container">
+  <mat-spinner *ngIf="isLoading"></mat-spinner>
+  <mat-card *ngIf="!isLoading" class="card">
+    <mat-card-header>
+      <div mat-card-avatar class="header-image"></div>
+      <mat-card-title>Launch #{{launchDetail.flight_number}}</mat-card-title>
+      <mat-card-subtitle>{{launchDetail.mission_name}}</mat-card-subtitle>
+    </mat-card-header>
+    <img mat-card-image src="https://source.unsplash.com/TV2gg2kZD1o">
+    <mat-card-content>
+      <p>
+        {{launchDetail.details}}
+      </p>
+    </mat-card-content>
+    <mat-card-actions>
+      <button mat-button (click)="back()">
+        <mat-icon>arrow_back</mat-icon>Back
+      </button>
+      <button *ngIf="isFavorite" mat-icon-button (click)="isFavoriteNow()">
+        <mat-icon>favorite</mat-icon>
+      </button>
+      <button *ngIf="!isFavorite" mat-icon-button (click)="addFavorite(launchDetail)">
+        <mat-icon>favorite_border</mat-icon>
+      </button>
+    </mat-card-actions>
+  </mat-card>
+</div>

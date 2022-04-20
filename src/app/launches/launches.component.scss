@@ -1,0 +1,16 @@
+.launches-container {
+  .launch-card-item {
+    margin-bottom: 2px;
+    width: 400px;
+    cursor: pointer;
+  }
+
+  .launch-card-item:hover {
+    box-shadow: 0 4px 17px rgba(0, 0, 0, 0.35);
+  }
+
+  .mat-form-field {
+    font-size: 14px;
+    width: 100%;
+  }
+}

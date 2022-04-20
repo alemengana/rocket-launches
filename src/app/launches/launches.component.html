@@ -1,0 +1,17 @@
+<div class="launches-container">
+  <mat-spinner *ngIf="isLoading"></mat-spinner>
+  <ng-container *ngIf="!isLoading">
+    <mat-form-field appearance="standard">
+      <mat-label>Filter by Launch</mat-label>
+      <input matInput (keyup)="applyFilter($event)" placeholder="Launch" autocomplete="off" #input>
+    </mat-form-field>
+    <mat-card class="launch-card-item" *ngFor="let launch of filteredLaunches"
+      (click)="goToLaunchDetails(launch.flight_number)">
+      <mat-card-title>
+        <mat-icon *ngIf="launch | favorite" mat-list-icon>favorite</mat-icon> Launch #{{launch.flight_number}}
+      </mat-card-title>
+      <mat-card-subtitle><strong>{{launch.mission_name}}</strong></mat-card-subtitle>
+      <mat-card-subtitle>{{launch.details}}</mat-card-subtitle>
+    </mat-card>
+  </ng-container>
+</div>
